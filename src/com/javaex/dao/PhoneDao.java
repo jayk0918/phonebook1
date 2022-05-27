@@ -170,7 +170,8 @@ public class PhoneDao {
 		close();
 		return dbList;
 	}
-
+	
+	
 	// search
 	public List<PersonVo> dbSearch(String search) {
 		List<PersonVo> dbList = new ArrayList<PersonVo>();
@@ -212,5 +213,52 @@ public class PhoneDao {
 		close();
 		return dbList;
 	}
+	
+	// select_individual
+	public PersonVo getPerson(int personId) {
+		PersonVo personVo = null;
+		
+		getConnection();
+		
+		try {
+			String query = "";
+			query += " select person_id ";
+			query += "     	 ,name ";
+			query += "       ,hp ";
+			query += "       ,company ";
+			query += " from person ";
+			query += " where person_id = ? ";
+			
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, personId);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				int id = rs.getInt("person_Id");
+				String name = rs.getString("name");
+				String hp = rs.getString("hp");
+				String company = rs.getString("company");
+				
+				personVo = new PersonVo(id, name, hp, company);
+			}
+			
+			
+		}catch(SQLException e) {
+			System.out.println("error: " + e);
+		}
+		
+		
+		
+		close();
+		return personVo;
+	}
+	
+	
+	
+	
+	
+	
 
 }// class end

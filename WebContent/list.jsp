@@ -39,6 +39,10 @@
 			<td>회사(company)</td>
 			<td><%=pList.get(i).getCompany()%></td>
 		</tr>
+		<tr>
+			<td><a href = "./updateForm.jsp?id=<%=pList.get(i).getPersonId()%>">[수정]</a></td>
+			<td><a href = "./delete.jsp?id=<%=pList.get(i).getPersonId()%>">[삭제]</a></td>
+		</tr>
 	</table>
 	<br>
 <%}%>
