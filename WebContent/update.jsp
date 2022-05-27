@@ -9,7 +9,7 @@
 	String name = request.getParameter("name");
 	String hp = request.getParameter("hp");
 	String company = request.getParameter("company");
-	int personId = Integer.parseInt(request.getParameter("personId"));
+	int personId = Integer.parseInt(request.getParameter("id"));
 	
 	PersonVo personVo = new PersonVo(personId, name, hp, company);
 	PhoneDao phoneDao = new PhoneDao();

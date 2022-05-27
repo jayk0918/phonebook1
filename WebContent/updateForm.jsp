@@ -54,8 +54,8 @@
 	
 	<br>
 	
-	<label for = "personId">코드(id): </label>
-	<input type = "text" name = "personId" value = "<%=personId%>"></input>
+	<label for = "id"></label>
+	<input type = "hidden" name = "id" value = "<%=personId%>"></input>
 	
 	<button type = "submit">수정</button>
 	
